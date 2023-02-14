@@ -14,7 +14,7 @@ let processSingleSource (source: string) =
     source
         |> UrlProcessor.GetObservations
         |> DalManager.InsertNewSchedule
-    DalManager.UpdateSourceStatus source 
+    DalManager.MarkUrlAsDone source 
         |> ignore
 
 [<EntryPoint>]
