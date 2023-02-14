@@ -1,11 +1,10 @@
-﻿open BL
+open BL
 
 let getUrls = 
     DalManager.Getsources
 
 let writeLog log = 
     DalManager.WriteLog log
-    printfn "%s" log
 
 let processSingleSource (source: string) = 
     source
