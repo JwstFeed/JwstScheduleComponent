@@ -3,9 +3,6 @@
 let getUrls = 
     DalManager.Getsources
 
-let updateSourceStatus (source: string) = 
-    DalManager.UpdateSourceStatus source
-
 let writeLog log = 
     DalManager.WriteLog log
     printfn "%s" log
