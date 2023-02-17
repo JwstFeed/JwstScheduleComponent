@@ -15,5 +15,6 @@ let processSingleSource (source: string) =
 
 [<EntryPoint>]
 let main argv =
-    getUrls |> Seq.iter(processSingleSource)
+    getUrls 
+        |> Seq.iter(processSingleSource)
     0
