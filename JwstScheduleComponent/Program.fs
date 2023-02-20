@@ -1,4 +1,5 @@
 open BL
+open BL.DAL
 
 let getUrls = 
     DalManager.Getsources
@@ -9,12 +10,15 @@ let writeLog log =
 let processSingleSource (source: string) = 
     source
         |> UrlProcessor.GetObservations
-        |> DalManager.InsertNewSchedule
-    DalManager.MarkUrlAsDone source 
+        |> insertNewSchedule
+    markUrlAsDone source 
         |> ignore
 
 [<EntryPoint>]
 let main argv =
-    getUrls 
-        |> Seq.iter(processSingleSource)
+    try
+        getUrls 
+        |> Seq.iter processSingleSource
+    with
+    | ex -> writeLog $"{ex.Message} | {ex.InnerException} | {ex.StackTrace}"
     0
