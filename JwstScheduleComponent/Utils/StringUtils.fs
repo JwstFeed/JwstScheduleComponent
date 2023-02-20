@@ -1,4 +1,4 @@
-﻿namespace Utils
+namespace Utils
 
 open System
 
@@ -18,7 +18,7 @@ module StringUtils =
         originalStr.Trim()
 
     type System.DateTime with
-        member x.ToUnixTime(): string = ((DateTimeOffset)x).ToUnixTimeSeconds().ToString()
+        member x.Unix: string = ((DateTimeOffset)x).ToUnixTimeSeconds().ToString()
 
     type System.String with
         member x.RemoveRows(rowsNum): string[] = x.Split(newLineArr).[rowsNum..]
