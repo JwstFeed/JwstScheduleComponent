@@ -1,12 +1,6 @@
 open BL
 open BL.DAL
 
-let getUrls = 
-    DalManager.Getsources
-
-let writeLog log = 
-    DalManager.WriteLog log
-
 let processSingleSource (source: string) = 
     source
         |> UrlProcessor.GetObservations
