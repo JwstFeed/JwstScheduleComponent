@@ -17,8 +17,7 @@ let processSingleSource (source: string) =
 [<EntryPoint>]
 let main argv =
     try
-        getUrls 
-        |> Seq.iter processSingleSource
+        getUrls |> Seq.iter processSingleSource
     with
     | ex -> writeLog $"{ex.Message} | {ex.InnerException} | {ex.StackTrace}"
     0
