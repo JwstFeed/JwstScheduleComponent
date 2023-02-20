@@ -1,4 +1,4 @@
-﻿namespace BL
+namespace BL
 
 open System
 open Model
@@ -21,7 +21,7 @@ module UrlProcessor =
     ]   
     
     let private cutUnwantedRows (obsTable: string): string[] =
-        obsTable.RemoveRows(unwantedRowsNumber)
+        obsTable.RemoveRows unwantedRowsNumber
 
     let private isRowNotEmpty (obs: Observation): bool =
         isNotEmpty obs.TargetName
@@ -66,7 +66,8 @@ module UrlProcessor =
         | _                            -> Observation ()
 
     let public GetObservations (url: string): seq<Observation> =
-        getUrlContent url 
+        url 
+            |> getUrlContent
             |> cutUnwantedRows
             |> Seq.map toObservation
             |> Seq.filter isRowNotEmpty
